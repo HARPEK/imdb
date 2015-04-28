@@ -1,0 +1,19 @@
+<% if @actor.errors.any? %>
+  Please fix the following errors:
+  <% @actor.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_for @actor do |f| %>
+<p><%= f.label :name, 'Actor Full Name' %><br>
+<%= f.text_field :name %></p>
+<br>
+<p><%= f.label :year_of_birth, 'Year of Birth' %><br>
+<%= f.text_field :year_of_birth %></p>
+<br>
+<p><%= f.label :thumbnail, 'Thumbnail (full path)' %><br>
+<%= f.text_field :thumbnail %></p>
+<br>
+<%= f.submit "Submit" %>
+<% end %>
